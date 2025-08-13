@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration | Mock Test System</title>
+    <link rel="stylesheet" href="style.css">
+   
+</head>
+
+<body>
+    <div class="container">
+        <!-- Logo Header -->
+        <div class="logo-header">
+            <div class="logo">MT</div>
+            <div>
+                <h3 style="color: var(--primary-color); margin: 0;">MockTest System</h3>
+                <p style="color: var(--text-muted); margin: 0; font-size: 0.9rem;">Student Registration Portal</p>
+            </div>
+        </div>
+
+        <!-- Main Header -->
+        <div class="header">
+            <h2>📚 Student Registration</h2>
+            <p>Complete your profile for mock test</p>
+        </div>
+
+        <!-- Form Container -->
+        <div class="form-container">
+            <form id="studentForm" method="post" action="http://localhost:8080/students/save" enctype="application/x-www-form-urlencoded">
+                
+                <!-- Roll Number -->
+                <div class="form-group">
+                    <label for="rollNo">
+                        <span class="icon">🎓</span>
+                        Roll Number
+                    </label>
+                    <input type="text" name="rollNo" id="rollNo" required placeholder="Enter your roll number">
+                </div>
+
+                <!-- Student Name -->
+                <div class="form-group">
+                    <label for="studentName">
+                        <span class="icon">👤</span>
+                        Student Name
+                    </label>
+                    <input type="text" name="studentName" id="studentName" required placeholder="Enter your full name">
+                </div>
+
+                <!-- Batch Name -->
+                <div class="form-group">
+                    <label for="batchName">
+                        <span class="icon">📅</span>
+                        Batch Name
+                    </label>
+                    <select name="batchName" id="batchName" required>
+                        <option value="">--Select Batch--</option>
+                        <option value="Jan 2025">Jan 2025</option>
+                        <option value="Feb 2025">Feb 2025</option>
+                        <option value="Mar 2025">Mar 2025</option>
+                        <option value="Apr 2025">Apr 2025</option>
+                        <option value="May 2025">May 2025</option>
+                        <option value="Jun 2025">Jun 2025</option>
+                        <option value="Jul 2025">Jul 2025</option>
+                        <option value="Aug 2025">Aug 2025</option>
+                        <option value="Sep 2025">Sep 2025</option>
+                        <option value="Oct 2025">Oct 2025</option>
+                        <option value="Nov 2025">Nov 2025</option>
+                        <option value="Dec 2025">Dec 2025</option>
+                    </select>
+                </div>
+
+                <!-- Module Name -->
+                <div class="form-group">
+                    <label for="moduleName">
+                        <span class="icon">📘</span>
+                        Module Name
+                    </label>
+                    <select name="moduleName" id="moduleName" required>
+                        <option value="">--Select Module--</option>
+                        <option value="C">C Programming</option>
+                        <option value="C++">C++ Programming</option>
+                        <option value="Java">Java Programming</option>
+                        <option value="Python">Python Programming</option>
+                        <option value="JavaScript">JavaScript</option>
+                        <option value="React">React.js</option>
+                        <option value="Node">Node.js</option>
+                    </select>
+                </div>
+
+                <!-- Mock Test Number -->
+                <div class="form-group">
+                    <label for="mockNo">
+                        <span class="icon">🧪</span>
+                        Mock Test Number
+                    </label>
+                    <select name="mockNo" id="mockNo" required>
+                        <option value="">--Select Mock Test--</option>
+                        <option value="mock1">Mock Test 1</option>
+                        <option value="mock2">Mock Test 2</option>
+                        <option value="mock3">Mock Test 3</option>
+                        <option value="mock4">Mock Test 4</option>
+                        <option value="mock5">Mock Test 5</option>
+                        <option value="final">Final Mock Test</option>
+                    </select>
+                </div>
+
+                <!-- Test Date (Optional) -->
+                <div class="form-group">
+                    <label for="testDate">
+                        <span class="icon">📅</span>
+                        Test Date (Optional)
+                    </label>
+                    <input type="date" name="testDate" id="testDate" placeholder="Leave blank for today's date">
+                </div>
+
+                <!-- Camera Section -->
+                <div class="camera-section" id="cameraSection">
+                    <h3>
+                        <span class="icon">📸</span>
+                        Student Photo
+                    </h3>
+                    
+                    <video id="camera" autoplay playsinline></video>
+                    <canvas id="snapshot"></canvas>
+                    
+                    <div class="photo-preview" id="photoPreview">
+                        <p style="color: var(--primary-color);"><strong>📷 Captured Photo:</strong></p>
+                        <img id="previewImage" src="" alt="Captured photo">
+                        <br>
+                        <button type="button" class="btn btn-retake" onclick="retakePhoto()">
+                            🔄 Retake Photo
+                        </button>
+                    </div>
+                    
+                    <input type="hidden" name="photoBase64" id="photoData">
+                    
+                    <div class="camera-controls">
+                        <button type="button" class="btn" onclick="capturePhoto()" id="captureBtn" disabled>
+                            📸 Capture Photo
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Status Message -->
+                <div id="statusMessage"></div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-success" id="submitBtn" disabled>
+                    ✅ Submit Registration
+                </button>
+
+                <!-- Navigation Buttons -->
+                <div class="navigation-buttons">
+                    <a href="getphotos.html" class="nav-btn">
+                        <span class="icon">📁</span>
+                        Manage Photos
+                    </a>
+                    <button type="button" class="nav-btn" onclick="window.location.reload()">
+                        <span class="icon">🔄</span>
+                        Reset Form
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+     <script src="script.js"></script>
+</body>
+</html>
